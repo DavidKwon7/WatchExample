@@ -1,11 +1,11 @@
-package com.example.watchexample.presentation.incheon
+package com.example.watchexample.presentation.jeju
 
 import androidx.compose.runtime.Composable
 import com.example.watchexample.presentation.IncheonScreen
 
 @Composable
-fun IncheonRoute(navigateToBack: () -> Unit) {
-    IncheonScreen(
+fun JejuRoute(navigateToBack: () -> Unit) {
+    JejuScreen(
         navigateToBack = navigateToBack
     )
 }

@@ -8,11 +8,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.wear.compose.material.*
-import com.google.android.gms.base.R
 
 @Composable
 fun MainScreen(
-    navigateToIncheon: () -> Unit
+    navigateToIncheon: () -> Unit,
+    navigateToSeoul: () -> Unit,
+    navigateToJeju: () -> Unit
 ) {
     val listState = rememberScalingLazyListState()
     androidx.wear.compose.material.Scaffold(
@@ -25,11 +26,11 @@ fun MainScreen(
             autoCentering = AutoCenteringParams(itemIndex = 0),
             state = listState
         ) {
-            item { ChipExample(titleText = "spring party", navigateToIncheon = navigateToIncheon) }
-            item { ChipExample(titleText = "summer party", navigateToIncheon = navigateToIncheon) }
-            item { ChipExample(titleText = "autumn party", navigateToIncheon = navigateToIncheon) }
-            item { ChipExample(titleText = "winter party", navigateToIncheon = navigateToIncheon) }
-            item { ChipExample(titleText = "party party", navigateToIncheon = navigateToIncheon) }
+            item { ChipExample(titleText = "서울 날씨", navigateToIncheon = navigateToSeoul) }
+            item { ChipExample(titleText = "인천 날씨", navigateToIncheon = navigateToIncheon) }
+            item { ChipExample(titleText = "전주 날씨", navigateToIncheon = navigateToIncheon) }
+            item { ChipExample(titleText = "부산 날씨", navigateToIncheon = navigateToIncheon) }
+            item { ChipExample(titleText = "제주도 날씨", navigateToIncheon = navigateToJeju) }
         }
     }
 }
@@ -59,7 +60,7 @@ fun ChipExample(
         },
         // 백그라운드 이미지 넣기
         colors = ChipDefaults.imageBackgroundChipColors(
-            backgroundImagePainter = painterResource(id = R.drawable.googleg_disabled_color_18)
+            backgroundImagePainter = painterResource(id = com.example.watchexample.R.drawable.baseline_airplane_ticket_24)
         )
     )
 }

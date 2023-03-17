@@ -7,9 +7,13 @@ import com.example.watchexample.presentation.MainRoute
 const val mainRoute = "main_route"
 
 fun NavGraphBuilder.mainScreen(
-    navigateToIncheon: () -> Unit
+    navigateToIncheon: () -> Unit,
+    navigateToSeoul: () -> Unit,
+    navigateToJeju: () -> Unit,
 ) {
     composable(route = mainRoute) {
-        MainRoute (navigateToIncheon)
+        MainRoute (
+            navigateToIncheon, navigateToSeoul, navigateToJeju
+        )
     }
 }

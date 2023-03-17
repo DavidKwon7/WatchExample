@@ -1,4 +1,4 @@
-package com.example.watchexample.presentation
+package com.example.watchexample.presentation.seoul
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -6,14 +6,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.wear.compose.material.CardDefaults
 import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TitleCard
+import com.example.watchexample.R
 
 @Composable
-fun IncheonScreen(
+fun SeoulScreen(
     modifier: Modifier = Modifier,
     navigateToBack: () -> Unit
 ) {
@@ -24,26 +23,17 @@ fun IncheonScreen(
         TitleCard(
             modifier = modifier,
             time = { },
-            title = { Text(text = "Incheon Weather") },
+            title = { Text(text = "Seoul Weather") },
             backgroundPainter = CardDefaults.imageWithScrimBackgroundPainter(
-                backgroundImagePainter = painterResource(id = com.example.watchexample.R.drawable.baseline_airplane_ticket_24)
-            // android.R.drawable.button_onoff_indicator_on
+                backgroundImagePainter = painterResource(id = R.drawable.baseline_airplane_ticket_24)
             ),
             onClick = { navigateToBack() }
         ) {
             Column {
-                Text(text = "온도 : 9°C")
-                Text(text = "습도 : 40%")
-                Text(text = "풍속 : 5m/s")
+                Text(text = "온도 : 12°C")
+                Text(text = "습도 : 21%")
+                Text(text = "풍속 : 3m/s")
             }
         }
     }
-}
-
-@Preview(device = Devices.WEAR_OS_SMALL_ROUND, showSystemUi = true)
-@Composable
-fun IncheonPreview() {
-    IncheonScreen(
-        navigateToBack = {}
-    )
 }
