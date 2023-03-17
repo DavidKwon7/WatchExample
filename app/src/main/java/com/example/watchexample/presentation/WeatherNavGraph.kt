@@ -20,7 +20,7 @@ fun WeatherNavGraph(modifier: Modifier = Modifier) {
     val navController = rememberSwipeDismissableNavController()
     SwipeDismissableNavHost(
         navController = navController,
-        startDestination = mainRoute   // start screen 입력
+        startDestination = mainRoute
     ) {
         mainScreen (
             navigateToIncheon = {

@@ -27,7 +27,6 @@ fun IncheonScreen(
             title = { Text(text = "Incheon Weather") },
             backgroundPainter = CardDefaults.imageWithScrimBackgroundPainter(
                 backgroundImagePainter = painterResource(id = com.example.watchexample.R.drawable.baseline_airplane_ticket_24)
-            // android.R.drawable.button_onoff_indicator_on
             ),
             onClick = { navigateToBack() }
         ) {

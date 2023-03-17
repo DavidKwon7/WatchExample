@@ -2,9 +2,11 @@ package com.example.watchexample.presentation
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.SelfImprovement
+import androidx.compose.material.icons.rounded.Thunderstorm
+import androidx.compose.material.icons.rounded.WbSunny
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.wear.compose.material.*
@@ -16,7 +18,7 @@ fun MainScreen(
     navigateToJeju: () -> Unit
 ) {
     val listState = rememberScalingLazyListState()
-    androidx.wear.compose.material.Scaffold(
+    Scaffold(
         timeText = { TimeText(modifier = Modifier.scrollAway(listState)) },
         vignette = { Vignette(vignettePosition = VignettePosition.TopAndBottom) },
         positionIndicator = { PositionIndicator(scalingLazyListState = listState) }
@@ -26,11 +28,46 @@ fun MainScreen(
             autoCentering = AutoCenteringParams(itemIndex = 0),
             state = listState
         ) {
-            item { ChipExample(titleText = "서울 날씨", navigateToIncheon = navigateToSeoul) }
-            item { ChipExample(titleText = "인천 날씨", navigateToIncheon = navigateToIncheon) }
-            item { ChipExample(titleText = "전주 날씨", navigateToIncheon = navigateToIncheon) }
-            item { ChipExample(titleText = "부산 날씨", navigateToIncheon = navigateToIncheon) }
-            item { ChipExample(titleText = "제주도 날씨", navigateToIncheon = navigateToJeju) }
+            item {
+                ChipExample(
+                    titleText = "Seoul Weather",
+                    subTitle = "Sunny",
+                    icon = Icons.Rounded.WbSunny,
+                    navigateToIncheon = navigateToSeoul
+                )
+            }
+            item {
+                ChipExample(
+                    titleText = "Incheon Weather",
+                    subTitle = "Sunny",
+                    icon = Icons.Rounded.WbSunny,
+                    navigateToIncheon = navigateToIncheon
+                )
+            }
+            item {
+                ChipExample(
+                    titleText = "Jeonju Weather",
+                    subTitle = "Sunny",
+                    icon = Icons.Rounded.WbSunny,
+                    navigateToIncheon = navigateToIncheon
+                )
+            }
+            item {
+                ChipExample(
+                    titleText = "Busan Weather",
+                    subTitle = "Sunny",
+                    icon = Icons.Rounded.WbSunny,
+                    navigateToIncheon = navigateToIncheon
+                )
+            }
+            item {
+                ChipExample(
+                    titleText = "Jeju Weather",
+                    subTitle = "Rainy",
+                    icon = Icons.Rounded.Thunderstorm,
+                    navigateToIncheon = navigateToJeju
+                )
+            }
         }
     }
 }
@@ -40,6 +77,8 @@ fun ChipExample(
     modifier: Modifier = Modifier,
     iconModifier: Modifier = Modifier,
     titleText: String,
+    subTitle: String,
+    icon: ImageVector,
     navigateToIncheon: () -> Unit
 ) {
     Chip(
@@ -52,13 +91,19 @@ fun ChipExample(
                 overflow = TextOverflow.Ellipsis
             )
         },
+        secondaryLabel = {
+            Text(
+                text = subTitle,
+                maxLines = 1,
+            )
+        },
         icon = {
-            Icon(imageVector = Icons.Rounded.SelfImprovement,
+            Icon(
+                imageVector = icon,
                 contentDescription = null,
                 modifier = iconModifier
             )
         },
-        // 백그라운드 이미지 넣기
         colors = ChipDefaults.imageBackgroundChipColors(
             backgroundImagePainter = painterResource(id = com.example.watchexample.R.drawable.baseline_airplane_ticket_24)
         )
